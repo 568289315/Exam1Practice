@@ -2,8 +2,8 @@
 PRACTICE Test 1, problem 3.
 
 Authors: David Mutchler, Valerie Galluzzi, Mark Hays, Amanda Stouder,
-         their colleagues and PUT_YOUR_NAME_HERE.  September 2016.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         their colleagues and Lanxi Wang.  September 2016.
+"""  # Done: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 import rosegraphics as rg
 
@@ -95,6 +95,13 @@ def test_problem3a():
     print('Test 4 expected:', expected)
     print('       actual:  ', answer)
 
+    point = rg.Point(30, 70)
+    expected = 218
+    answer = problem3a(window3, point, 20)
+    print()
+    print('Test 5 expected:', expected)
+    print('       actual:  ', answer)
+
     window3.close_on_mouse_click()
 
     # ------------------------------------------------------------------
@@ -145,6 +152,9 @@ def problem3a(window, point, n):
     #    DIFFICULTY:      7 or 8
     #    TIME ESTIMATE:   20 to 35 minutes.
     # ------------------------------------------------------------------
+    point.attach_to(window)
+    poi
+
 
 
 def test_problem3b():

@@ -2,8 +2,8 @@
 PRACTICE Test 1, problem 2.
 
 Authors: David Mutchler, Valerie Galluzzi, Mark Hays, Amanda Stouder,
-         their colleagues and PUT_YOUR_NAME_HERE.  September 2016.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         their colleagues and Lanxi Wang.  September 2016.
+"""  # DONE: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 import rosegraphics as rg
 
@@ -101,8 +101,9 @@ def problem2a(circle, rectangle, window):
       :type rectangle: rg.Rectangle
       :type window:    rg.RoseWindow
     """
+
     # ------------------------------------------------------------------
-    # TODO: 2. Implement and test this function.
+    # DONE: 2. Implement and test this function.
     #          Tests have been written for you (above).
     # ------------------------------------------------------------------
     # ------------------------------------------------------------------
@@ -110,6 +111,24 @@ def problem2a(circle, rectangle, window):
     #    DIFFICULTY:      6
     #    TIME ESTIMATE:   10 to 15 minutes.
     # ------------------------------------------------------------------
+    circle.attach_to(window)
+    rectangle.attach_to(window)
+    window.render()
+    window.get_next_mouse_click()
+    s = rectangle.get_upper_right_corner()
+    e = rectangle.get_lower_left_corner()
+    line = rg.Line( s, e)
+    line.attach_to(window)
+    line.arrow = 'last'
+    window.render()
+    circle.fill_color = rectangle.outline_color
+    window.get_next_mouse_click()
+    window.render()
+
+
+
+
+
 
 def test_problem2b():
     """ Tests the  problem2b   function. """
@@ -181,6 +200,21 @@ def problem2b(rect, n, delta, win):
     #    DIFFICULTY:      7
     #    TIME ESTIMATE:   15 to 25 minutes.
     # ------------------------------------------------------------------
+    rect.attach_to(win)
+    win.render()
+    corner1 = rect.get_upper_right_corner()
+    corner2 = rect.get_lower_right_corner()
+    for k in range(n-1):
+        corner1new = rg.Point(corner1.x-(k+1)*delta,corner1.y-(k+1)*delta)
+        corner2new = rg.Point(corner1.x+(k+1)*delta,corner2.y-(k+1)*delta)
+        rect1 = rg.Rectangle(corner1new,corner2new )
+        rect1.attach_to(win)
+
+
+    win.render()
+
+
+
 
 
 # ----------------------------------------------------------------------
