@@ -152,10 +152,11 @@ def problem3a(window, point, n):
     #    DIFFICULTY:      7 or 8
     #    TIME ESTIMATE:   20 to 35 minutes.
     # ------------------------------------------------------------------
-    point.attach_to(window)
+
     point1 = rg.Point(point.x,point.y+50)
     line = rg.Line(point,point1)
     a = line.thickness = 1
+    line.attach_to(window)
     total = 1
     for _ in range(n-1):
         pointnew = rg.Point(point.x+20,point.y+10)
@@ -230,7 +231,7 @@ def problem3b(m, point1):
         :type point1: rg.Point
     """
     # ------------------------------------------------------------------
-    # TODO: 4. Implement and test this function.
+    # DONE: 4. Implement and test this function.
     #          Tests have been written for you (above).
     #
     ####################################################################
@@ -244,20 +245,17 @@ def problem3b(m, point1):
     #    TIME ESTIMATE:   20 to 30 minutes.
     # ------------------------------------------------------------------
     window = rg.RoseWindow(400,650)
+    window.render()
     n = 3
-    total = 1
+    hh = 0
     for _ in range(m):
-
         problem3a(window,point1,n)
-        total = total
+        hh = hh + problem3a(window,point1,n)
         newstart = rg.Point(point1.x,point1.y+60)
         point1 = newstart
         n = n +2
-    return total
-    window.render()
     window.close_on_mouse_click()
-
-
+    return hh
 
 
 # ----------------------------------------------------------------------
