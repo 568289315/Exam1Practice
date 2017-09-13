@@ -37,7 +37,7 @@ def main():
 def test_problem3a():
     """ Tests the   problem3a   function. """
     # ------------------------------------------------------------------
-    # TODO: 2. Implement this TEST function.
+    # DONE: 2. Implement this TEST function.
     #   It TESTS the  problem1a  function defined below.
     #   Include at least **   5   ** tests (we wrote four for you).
     # ------------------------------------------------------------------
@@ -144,7 +144,7 @@ def problem3a(window, point, n):
         :type n:      int
     """
     # ------------------------------------------------------------------
-    # TODO: 3. Implement and test this function.
+    # DONE: 3. Implement and test this function.
     #   Note that you should write its TEST function first (above).
     # ------------------------------------------------------------------
     # ------------------------------------------------------------------
@@ -153,7 +153,26 @@ def problem3a(window, point, n):
     #    TIME ESTIMATE:   20 to 35 minutes.
     # ------------------------------------------------------------------
     point.attach_to(window)
-    poi
+    point1 = rg.Point(point.x,point.y+50)
+    line = rg.Line(point,point1)
+    a = line.thickness = 1
+    total = 1
+    for _ in range(n-1):
+        pointnew = rg.Point(point.x+20,point.y+10)
+        point1new = rg.Point(pointnew.x,pointnew.y+50)
+        linenew = rg.Line(pointnew,point1new)
+        b = linenew.thickness = a + 2
+        total = total + b
+        if b > 13:
+            linenew.thickness = 13
+            total = total - b + 13
+        linenew.attach_to(window)
+        point = pointnew
+        a = b
+    window.render()
+    return total
+
+
 
 
 
@@ -224,6 +243,22 @@ def problem3b(m, point1):
     #    DIFFICULTY:      8 or 9
     #    TIME ESTIMATE:   20 to 30 minutes.
     # ------------------------------------------------------------------
+    window = rg.RoseWindow(400,650)
+    n = 3
+    total = 1
+    for _ in range(m):
+
+        problem3a(window,point1,n)
+        total = total
+        newstart = rg.Point(point1.x,point1.y+60)
+        point1 = newstart
+        n = n +2
+    return total
+    window.render()
+    window.close_on_mouse_click()
+
+
+
 
 # ----------------------------------------------------------------------
 # Calls  main  to start the ball rolling.

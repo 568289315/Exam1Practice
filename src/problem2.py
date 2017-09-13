@@ -201,7 +201,6 @@ def problem2b(rect, n, delta, win):
     #    TIME ESTIMATE:   15 to 25 minutes.
     # ------------------------------------------------------------------
     rect.attach_to(win)
-    win.render()
     corner1 = rect.get_upper_left_corner()
     corner2 = rect.get_lower_right_corner()
     for _ in range(n-1):
