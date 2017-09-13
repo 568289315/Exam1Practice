@@ -146,6 +146,7 @@ def test_problem2b():
     rectangle = rg.Rectangle(rg.Point(100, 100), rg.Point(140, 120))
     rectangle.fill_color = 'blue'
     problem2b(rectangle, 6, 15, window)
+    window.continue_on_mouse_click()
 
 
     rectangle = rg.Rectangle(rg.Point(400, 300), rg.Point(350, 200))
