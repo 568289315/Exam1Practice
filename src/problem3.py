@@ -105,7 +105,7 @@ def test_problem3a():
     window3.close_on_mouse_click()
 
     # ------------------------------------------------------------------
-    # TODO: 2 (continued).
+    # DONE: 2 (continued).
     # Below this comment (or integrated with one of the above tests,
     # your choice), add 1 more test case of your own choosing.
     # ------------------------------------------------------------------

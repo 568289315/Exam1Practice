@@ -146,7 +146,7 @@ def test_problem2b():
     rectangle = rg.Rectangle(rg.Point(100, 100), rg.Point(140, 120))
     rectangle.fill_color = 'blue'
     problem2b(rectangle, 6, 15, window)
-    window.continue_on_mouse_click()
+
 
     rectangle = rg.Rectangle(rg.Point(400, 300), rg.Point(350, 200))
     rectangle.fill_color = 'green'
@@ -202,16 +202,26 @@ def problem2b(rect, n, delta, win):
     # ------------------------------------------------------------------
     rect.attach_to(win)
     win.render()
-    corner1 = rect.get_upper_right_corner()
+    corner1 = rect.get_upper_left_corner()
     corner2 = rect.get_lower_right_corner()
-    for k in range(n-1):
-        corner1new = rg.Point(corner1.x-(k+1)*delta,corner1.y-(k+1)*delta)
-        corner2new = rg.Point(corner1.x+(k+1)*delta,corner2.y-(k+1)*delta)
-        rect1 = rg.Rectangle(corner1new,corner2new )
-        rect1.attach_to(win)
-
-
+    for _ in range(n-1):
+        x1 = corner1.x - delta
+        y1 = corner1.y - delta
+        x2 = corner2.x + delta
+        y2 = corner2.y + delta
+        cornernew1 = rg.Point(x1, y1)
+        cornernew2 = rg.Point(x2, y2)
+        rectnew = rg.Rectangle(cornernew1,cornernew2)
+        rectnew.attach_to(win)
+        corner1.x = x1
+        corner1.y = y1
+        corner2.x = x2
+        corner2.y = y2
     win.render()
+
+
+
+
 
 
 
